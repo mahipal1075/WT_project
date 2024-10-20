@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Video Background -->
+    <div class="video-container">
+        <video id="background-video" autoplay loop muted>
+            <source src="background_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Registration Form -->
+    <div class="content">
+        <div class="container">
+            <h2 class="main-heading">Create Your Account</h2>
+            <form class="registration-form" onsubmit="return validateRegistration()">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="firstName">First Name</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="middleName">Middle Name</label>
+                        <input type="text" class="form-control" id="middleName" placeholder="Middle Name">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email" required>
+                    <small class="text-danger" id="emailError"></small>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password" required>
+                        <small class="text-danger" id="passwordError"></small>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" required>
+                        <small class="text-danger" id="confirmPasswordError"></small>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" >Register</button>
+
+                <div class="social-login mt-4">
+                    <h4>Or sign up with:</h4>
+                    <button class="btn btn-outline-dark">Google</button>
+                    <button class="btn btn-outline-primary">Facebook</button>
+                    <button class="btn btn-outline-secondary">Apple</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Regex for password validation
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\$\@\%]).{6,}$/;
+        
+        // Regex for email validation
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        // Validate registration form
+        function validateRegistration() {
+            let isValid = true;
+
+            // Get form field values
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const confirmPassword = document.getElementById('confirmPassword').value.trim();
+
+            // Clear previous error messages
+            document.getElementById('emailError').innerText = "";
+            document.getElementById('passwordError').innerText = "";
+            document.getElementById('confirmPasswordError').innerText = "";
+
+            // Validate email
+            if (!emailRegex.test(email)) {
+                document.getElementById('emailError').innerText = "Please enter a valid email address.";
+                isValid = false;
+            }
+
+            // Validate password
+            if (!passwordRegex.test(password)) {
+                alert("Password must contain at least one lowercase, one uppercase, one number, and one special character (@, $, %). It should be at least 6 characters long.");
+                isValid = false;
+            }
+
+            // Validate confirm password
+            if (password !== confirmPassword) {
+                document.getElementById('confirmPasswordError').innerText = "Passwords do not match.";
+                isValid = false;
+            }
+
+            return isValid; // Prevent form submission if validation fails
+        }
+    </script>
+
+</body>
+</html>

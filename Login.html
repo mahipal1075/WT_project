@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - EarthWise Marketplace</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Video Background -->
+    <div class="video-container">
+        <video id="background-video" autoplay loop muted>
+            <source src="background_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Login Form -->
+    <div class="login-content">
+        <h2 class="login-heading">Login</h2>
+        
+        <form class="login-form" onsubmit="return validateLogin()">
+            <div class="form-group">
+                <input type="text" id="username" class="form-control" placeholder="Username" required>
+                <small class="text-danger" id="usernameError"></small>
+            </div>
+
+            <div class="form-group">
+                <input type="password" id="password" class="form-control" placeholder="Password" required>
+                <small class="text-danger" id="passwordError"></small>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+
+            <div class="form-group">
+                <a href="#" class="forgot-password">Forgot Password?</a>
+            </div>
+
+            <p class="or-section">OR</p>
+
+            <div class="social-login">
+                <button type="button" class="btn google-btn">Google</button>
+                <button type="button" class="btn facebook-btn">Facebook</button>
+                <button type="button" class="btn apple-btn">Apple</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Regex for password validation
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\$\@\%]).{6,}$/;
+
+        // Client-side validation for login
+        function validateLogin() {
+            let isValid = true;
+
+            // Get form fields
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // Clear previous error messages
+            document.getElementById('usernameError').innerText = "";
+            document.getElementById('passwordError').innerText = "";
+
+            // Validate username
+            if (username === "" || username.match(/^\d+$/)) {
+                document.getElementById('usernameError').innerText = "Username is required. or Enter valid user name";
+                return false;
+            }
+
+            // Validate password using regex
+            if (!passwordRegex.test(password)) {
+                alert("Password must contain at least one lowercase, one uppercase, one number, and one special character (@, $, %). It should be at least 6 characters long.");
+                isValid = false;
+            }
+
+            return isValid; // Prevent form submission if validation fails
+        }
+    </script>
+
+</body>
+</html>

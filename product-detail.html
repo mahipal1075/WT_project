@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css"> <!-- Link to your custom CSS -->
+    <style>
+        body{
+        background-image: url('background.jpg'); /* Path to your background image */
+        background-size: cover; /* Ensure the image covers the entire background */
+        background-position: center;
+        background-attachment: fixed; /* Keeps the background fixed when scrolling */
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        }
+        /* Product Card Image Fix for Collection Page */
+
+        
+    </style>
+</head>
+<body>
+    <header class="header">     
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" >
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src=" logo.png" alt="Logo" class="logo-img">
+                    <span>EarthWise Marketplace</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li><a href="home.html" class="nav-link">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="nav-link">Product</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="collection.html" class="nav-link">Collection</a></li>
+                        <li><a href="latest-products.html" class="nav-link">Latest Products</a></li>
+                    </ul>
+                </li>
+                <li><a href="About Us.html" class="nav-link">About Us</a></li>
+                <li><a href="contect_as.html" class="nav-link">Contact Us</a></li>
+                <li><a href="reviwe_as.html" class="nav-link">Review Us</a></li>
+                <div class="extras">
+                    <form class="search-bar">
+                        <input type="text" placeholder="Search..." class="search-input">
+                    </form>
+                    <a href="cart.html"><img src="cart.png" alt="Cart" class="cart-icon"></a>
+                    <img src="user.png" alt="User" class="profile-img">
+                </div>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="cart-container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="product_image.jpg" alt="Product" class="img-fluid product-imgs" id="productImage">
+
+            </div>
+            <div class="col-md-6">
+                <h2 id="productTitle">Product Name</h2>
+                <p id="productDescription">Product description goes here. This will detail the features and benefits of the product.</p>
+                <p class="ja"><strong >Price:</strong> <span id="productPrice">$XX.XX</span></p>
+                <a href="#" class="btn btn-success">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <h3 class="hd">Customer Reviews</h3>
+                <div id="reviews">
+                    <p>No reviews yet.</p> <!-- You can populate this with dynamic reviews -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-6 mb-5 py-3">
+        <div class="container">
+            <div class="row">
+                <!-- Newsletter Signup -->
+                <div class="col-md-4">
+                    <h5>Subscribe to our Newsletter</h5>
+                    <form class="newsletter-form">
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                        <button type="submit" class="btn btn-success mt-2">Subscribe</button>
+                    </form>
+                </div>
+                
+                <!-- Environmental Impact -->
+                <div class="col-md-4">
+                    <h5>Our Environmental Impact</h5>
+                    <p>By choosing EarthWise products, you're supporting a sustainable future. We reduce waste, save energy, and protect natural resources.</p>
+                </div>
+    
+                <!-- Social Media Links -->
+                <div class="col-md-4">
+                    <h5>Connect with Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
+                        <a href="#" class="social-link"><img src="twitter-icon.png" alt="Twitter"></a>
+                        <a href="#" class="social-link"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
+                        <a href="#" class="social-link"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube"></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>&copy; 2024 EarthWise Marketplace. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css"> <!-- Link to your custom CSS -->
+   
+</head>
+<body>
+    <!-- Background Video -->
+    <div class="video-container">
+        <video autoplay muted loop id="background-video">
+            <source src="background_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="logo.png" alt="Logo" class="logo-img">
+                    <span>EarthWise Marketplace</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li><a href="home.html" class="nav-link">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link">Product</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="collection.html" class="nav-link">Collection</a></li>
+                                <li><a href="latest-products.html" class="nav-link">Latest Products</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about.html" class="nav-link">About Us</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+                        <li><a href="review.html" class="nav-link">Review Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container  pt-5 content-wrapper container-7">
+        <h1 class="text-center">Customer Reviews</h1>
+        
+        <!-- Alert for review submission -->
+        <div class="alert alert-success" id="reviewAlert" role="alert">
+            Your review has been added!
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Add Your Review</h3>
+                <form id="reviewForm">
+                    <div class="form-group">
+                        <label for="reviewTitle">Title</label>
+                        <input type="text" class="form-control" id="reviewTitle" placeholder="Enter review title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reviewText">Review</label>
+                        <textarea class="form-control" id="reviewText" rows="3" placeholder="Write your review" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">Submit Review</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h3>Previous Reviews</h3>
+                <div id="reviews">
+                    <!-- Dummy Reviews -->
+                    <div class="review-card">
+                        <span class="stars">★★★★★</span>
+                        <p class="review-title">Great Products!</p>
+                        <p class="review-text">I love the eco-friendly products from EarthWise Marketplace. They are stylish and functional!</p>
+                        
+                    </div>
+                    <div class="review-card">
+                        <span class="stars">★★★★★</span>
+                        <p class="review-title">Sustainable and Stylish</p>
+                        <p class="review-text">The tote bag I purchased is both sustainable and looks great. Highly recommend!</p>
+                    </div>
+                    <div class="review-card">
+                        <span class="stars">★★★★★</span>
+                        <p class="review-title">Fantastic Quality</p>
+                        <p class="review-text">I was impressed with the quality of the products. Will definitely shop again!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Handle review submission
+        document.getElementById('reviewForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            // Get form values
+            const title = document.getElementById('reviewTitle').value;
+            const text = document.getElementById('reviewText').value;
+            
+            // Create new review card
+            const reviewCard = document.createElement('div');
+            reviewCard.className = 'review-card';
+            reviewCard.innerHTML = `<p class="review-title">${title}</p><p class="review-text">${text}</p>`;
+            
+            // Append the new review to the reviews section
+            document.getElementById('reviews').prepend(reviewCard);
+            
+            // Show alert message
+            const alert = document.getElementById('reviewAlert');
+            alert.style.display = 'block';
+            
+            // Clear the form
+            document.getElementById('reviewForm').reset();
+            
+            // Hide alert after 3 seconds
+            setTimeout(() => {
+                alert.style.display = 'none';
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
